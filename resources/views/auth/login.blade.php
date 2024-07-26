@@ -12,16 +12,16 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form id="login-form" method="POST" action="{{ route('custom-login') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-12 col-form-label">{{ __('Email') }}</label>
+                            <label for="username" class="col-md-12 col-form-label">{{ __('Username') }}</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -43,17 +43,18 @@
                             </div>
                         </div>
 
+                        <!-- Added a margin below the password input -->
+                        <div class="row mb-3">
+                            <div class="col-md-12"></div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-12">
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link text-end" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                                 <button type="submit" class="btn loginbtn">
                                     {{ __('Log in') }}
                                 </button>
-                                <p class="text-end mt-2">Don't have an account? <a href="{{ route('register') }}">{{ __('Sign up') }}</a></p>
+                                <!-- Removed the sign-up link -->
+                                <!-- <p class="text-end mt-2">Don't have an account? <a href="{{ route('register') }}">{{ __('Sign up') }}</a></p> -->
                             </div>
                         </div>
                     </form>
