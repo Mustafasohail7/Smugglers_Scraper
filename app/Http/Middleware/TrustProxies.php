@@ -19,5 +19,5 @@ class TrustProxies extends Middleware
      *
      * @var int
      */
-    protected $headers = 15
+    protected $headers = 15;
 }
