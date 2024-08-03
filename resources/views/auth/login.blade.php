@@ -15,6 +15,8 @@
                     <form id="login-form" method="POST" action="{{ route('custom-login') }}">
                         @csrf
 
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                         <div class="row mb-3">
                             <label for="username" class="col-md-12 col-form-label">{{ __('Username') }}</label>
 
